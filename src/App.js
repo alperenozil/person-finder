@@ -1,4 +1,6 @@
 import React, {Fragment, Component} from 'react'
+import Navbar from "./components/layout/Navbar"
+import UserItem from "./components/users/UserItem"
 import './App.css';
 
 class App extends Component {
@@ -6,7 +8,8 @@ class App extends Component {
     {
       return(
       <div className="App">
-        <h1>I love React</h1>
+        <Navbar title="Profile Finder"></Navbar>
+        <UserItem></UserItem>
       </div>
       );
     }
