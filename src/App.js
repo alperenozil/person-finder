@@ -1,4 +1,5 @@
 import React, {Fragment, Component} from 'react'
+import { BrowserRouter as Router, Switch, Route} from 'react-router-dom'
 import Navbar from "./components/layout/Navbar"
 import Users from "./components/users/Users"
 import Search from "./components/users/Search"
@@ -23,13 +24,25 @@ class App extends Component {
   render() 
     {
       return(
-      <div className="App">
+      <Router>
+        <div className="App">
         <Navbar title="Profile Finder"></Navbar>
         <div className="container">
-        <Search searchUsers={this.searchUsers}></Search>
-        <Users loading={this.state.loading} users={this.state.users}></Users>
+        <Switch>
+          <Route exact path='/' render={props=>(
+            <Fragment>
+              <Users loading={this.state.loading} users={this.state.users}></Users>
+            </Fragment>
+          )}></Route>
+          <Route exact path='/alperen' render={props=>(
+            <Fragment>
+              <Search searchUsers={this.searchUsers}></Search>
+            </Fragment>
+          )}></Route>
+        </Switch>
         </div>
       </div>
+      </Router>
       );
     }
 }
