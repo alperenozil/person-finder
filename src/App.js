@@ -45,7 +45,7 @@ class App extends Component {
             </Fragment>
           )}></Route>
           <Route exact path='/about' component={About}></Route>
-          <Route exact path='/user:login' render={props=>(
+          <Route exact path='/user/:login' render={props=>(
             <User {...props} getUser={this.getUser} user={user}></User>
           )}></Route>
         </Switch>
