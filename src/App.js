@@ -4,6 +4,7 @@ import Navbar from "./components/layout/Navbar"
 import Users from "./components/users/Users"
 import Search from "./components/users/Search"
 import About from "./components/pages/About"
+import User from "./components/users/User"
 import './App.css';
 import axios from 'axios';
 
@@ -30,6 +31,7 @@ class App extends Component {
   }
   render() 
     {
+      const {users,user,loading}=this.state;
       return(
       <Router>
         <div className="App">
@@ -43,6 +45,9 @@ class App extends Component {
             </Fragment>
           )}></Route>
           <Route exact path='/about' component={About}></Route>
+          <Route exact path='/user:login' render={props=>(
+            <User {...props} getUser={this.getUser} user={user}></User>
+          )}></Route>
         </Switch>
         </div>
       </div>
